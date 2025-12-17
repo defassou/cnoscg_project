@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ObservateursCNOSCG.gn - Plateforme Nationale des Observateurs du CNOSCG</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+  <!-- BANDEAU CNOSCG -->
+  <div class="cnoscg-banner">
+    CONSEIL NATIONAL DES ORGANISATIONS DE LA SOCIÉTÉ CIVILE DE GUINÉE (CNOSCG)
+  </div>
+
+  <!-- ============================ -->
+  <!--     HEADER DÉFILANT V3 PRO   -->
+  <!-- ============================ -->
+  <div class="header-wrapper">
+      <div class="header-block">
+
+          <div class="header-marquee">
+
+              <!-- ORIGINAL -->
+              <header class="header-content">
+                  <img src="images/logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
+                  <div>
+                    <h1 class="main-title">ObservateursCNOSCG.gn</h1>
+                    <p class="subtitle">Plateforme Nationale des Observateurs du CNOSCG</p>
+                  </div>
+              </header>
+
+              <!-- DUPLICATION POUR DÉFILEMENT INFINI -->
+              <header class="header-content">
+                  <img src="logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
+                  <div>
+                    <h1 class="main-title">ObservateursCNOSCG.gn</h1>
+                    <p class="subtitle">Plateforme Nationale des Observateurs du CNOSCG</p>
+                  </div>
+              </header>
+
+          </div>
+
+      </div>
+  </div>
+
+  <!-- SECTION HERO / ACCUEIL -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h2>Plateforme officielle des Observateurs du CNOSCG</h2>
+        <p>
+          Élection présidentielle du 28 décembre 2025. Cet espace est dédié aux
+          observateurs domestiques retenus par le CNOSCG pour contribuer à un processus
+          électoral intègre, inclusif et transparent.
+        </p>
+        <div class="hero-actions">
+          <a href="#verif" class="btn primary">Vérifier mon statut</a>
+          <a href="#docs" class="btn secondary">Consulter les documents</a>
+        </div>
+      </div>
+      <div class="hero-info">
+        <div class="hero-badge">Présidentielle 2025</div>
+        <ul class="hero-list">
+          <li>Observation citoyenne et indépendante</li>
+          <li>Couverture nationale des bureaux de vote</li>
+          <li>Respect du code de conduite de l'observateur</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MOT DU PRÉSIDENT -->
+  <section class="president-section-institutionnel">
+    <div class="president-header">
+      <img src="images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="logo-cnoscg">
+      <h2>Mot du Président du CNOSCG</h2>
+    </div>
+
+    <div class="president-wrapper">
+      <div class="president-photo-box">
+        <div class="guinea-flag-bar"></div>
+        <img src="images/president.jpg" alt="Président du CNOSCG" class="president-photo-institutionnel">
+      </div>
+
+      <div class="president-speech">
+        <p>
+          « Notre vision pour l’élection présidentielle du 28 décembre 2025 est d’en faire 
+          un processus électoral intègre, inclusif et transparent, garantissant la 
+          crédibilité du scrutin et la pleine participation de tous les citoyens. 
+          <br><br>
+          Merci de nous accompagner dans cette mission républicaine. »
+        </p>
+
+        <div class="president-signature">
+          <strong style="font-size:20px;">Président du CNOSCG</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION VERIFICATION OBSERVATEUR -->
+  <section id="verif" class="verif-section">
+    <div class="verif-container">
+      <h2>Vérifier mon statut d'observateur</h2>
+      <p class="verif-intro">
+        Saisissez votre numéro de téléphone pour vérifier votre statut en tant qu'observateur domestique
+        du CNOSCG pour l'élection présidentielle du 28 décembre 2025.
+      </p>
+
+      <div class="card verif-card">
+        <label for="phone">Numéro de téléphone</label>
+        <div class="form-row" >
+          <input id="phone" type="tel" placeholder="Ex&nbsp;: 622829824" inputmode="tel" />
+          <button id="checkBtn" class="btn primary">Vérifier</button>
+        </div>
+        <div id="message" class="small" style="margin-top:10px"></div>
+
+        <!-- Résultat trouvé -->
+        <div id="result" class="result" aria-live="polite">
+          <img id="photo" class="avatar" src="" alt="Photo de l'observateur" />
+          <div class="info">
+            <div id="statusBox" class="badge">STATUT</div>
+            <p class="success-text" id="successText"></p>
+            <div class="field"><strong id="fullname">Nom Prénom</strong></div>
+            <div class="field small">Commune : <span id="commune">-</span></div>
+            <div class="field small">Téléphone : <span id="phoneOut">-</span></div>
+            <div class="field small">ID Observateur : <span id="obsId">-</span></div>
+          </div>
+        </div>
+
+        <!-- Résultat non trouvé -->
+        <div id="notFound" class="alert alert-warning" role="status" aria-live="polite">
+          Aucun enregistrement trouvé pour ce numéro. 
+          Si vous pensez qu'il s'agit d'une erreur, veuillez contacter le CNOSCG.
+        </div>
+
+        <!-- Erreur technique -->
+        <div id="errorBox" class="alert alert-error" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DOCUMENTS -->
+  <section id="docs" class="docs-section">
+    <div class="docs-container">
+      <h2>Documents essentiels pour les observateurs</h2>
+      <p class="docs-intro">
+        Les documents ci-dessous sont mis à votre disposition pour vous permettre d'accomplir
+        votre mission dans le strict respect des principes d'intégrité, de neutralité et de professionnalisme.
+      </p>
+
+      <div class="docs-grid">
+        <article class="doc-card">
+          <h3>Code de conduite de l'observateur</h3>
+          <p>Principes, obligations et comportements attendus de chaque observateur.</p>
+          <a href="#" class="doc-link">Télécharger le document (PDF)</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Guide pratique de l'observation</h3>
+          <p>Instructions détaillées pour la journée du scrutin et la remontée des informations.</p>
+          <a href="#" class="doc-link">Télécharger le guide (PDF)</a>
+        </article>
+
+        <article class="doc-card">
+          <h3>Procédure de remontée des rapports</h3>
+          <p>Canaux, délais et formats pour la transmission des rapports d'observation.</p>
+          <a href="#" class="doc-link">Télécharger la procédure (PDF)</a>
+        </article>
+
+        <article class="doc-card">
+          <h5>Décision portant nomination des membres de la Commission nationale de coordination...</h5>
+          <p>Décision N°003/BEN/CNOSCG/2025.</p>
+          <a href="images/JOURNAL 10 NOVEMBRE.pdf" class="doc-link">Télécharger le kit (PDF)</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MISSION -->
+  <section class="mission-section">
+    <div class="mission-container">
+      <h2>Mission d'observation du CNOSCG</h2>
+      <p>
+        Le Conseil National des Organisations de la Société Civile Guinéenne (CNOSCG) s'engage à 
+        contribuer à la transparence et à la crédibilité du processus électoral à travers une 
+        observation citoyenne, professionnelle et indépendante.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION ÉQUIPE -->
+  <section class="team-section">
+    <h2>Membres de la COEP</h2>
+
+    <div class="team-carousel" id="teamCarousel">
+      <div class="team-card">
+        <img src="static/images/M sylla.jpg" alt="Amadou SYLLA">
+        <h3>Amadou SYLLA</h3>
+        <p>Président</p>
+      </div>
+
+      <div class="team-card">
+        <img src="static/images/M Toure.jpg" alt="Luc Innocent TOURÉ">
+        <h3>Luc Innocent TOURÉ</h3>
+        <p>Rapporteur Général</p>
+      </div>
+
+      <div class="team-card">
+        <img src="static/images/M Sory.jpg" alt="Sory CAMARA">
+        <h3>Sory CAMARA</h3>
+        <p>Responsable du Suivi et Évaluation</p>
+      </div>
+
+      <div class="team-card">
+        <img src="static/images/M Karim.jpg" alt="Abdoul Karim TOURE">
+        <h3>Abdoul Karim TOURE</h3>
+        <p>Responsable de la Logistique</p>
+      </div>
+
+      <div class="team-card">
+        <img src="static/images/Kanah.jpg" alt="Mamadou Kana DIALLO">
+        <h3>Mamadou Kana DIALLO</h3>
+        <p>Responsable de la Formation</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/saibou.jpg" alt="Saïbou KOUROUMA">
+        <h3>Saïbou KOUROUMA</h3>
+        <p>Responsable IT / Gestion des Données</p>
+      </div>
+       <div class="team-card">
+        <img src="images/Felix.jpg" alt="Felix Dounia MILLIMONO">
+        <h3>Felix Dounia MILLIMONO</h3>
+        <p>Responsable de la Planification et du Partenariat</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/Ankou.jpg" alt="Ankou GREGOIRE">
+        <h3>Ankou GREGOIRE</h3>
+        <p>Responsable Communication</p>
+      </div>
+
+      <div class="team-card">
+        <img src="images/moussa_kaba.jpg" alt="Macka DIABY">
+        <h3>Macka DIABY</h3>
+        <p>Comptable</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="footer-logo">
+        <span>ObservateursCNOSCG.gn</span>
+      </div>
+      <div class="footer-right">
+        <p>© 2025 CNOSCG – Plateforme Nationale des Observateurs. Tous droits réservés.</p>
+        <p>Élection présidentielle du 28 décembre 2025.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+{% endblock %}
