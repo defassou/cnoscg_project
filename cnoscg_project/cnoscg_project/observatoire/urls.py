@@ -14,4 +14,6 @@ urlpatterns = [
     path('delete_observateur/<str:pk>', views.delete_observateur, name='delete_observateur'),
     path('search/', views.search, name='search'),
 
+    path('sgfg/', views.sgfg, name='sgfg'),
+
 ]

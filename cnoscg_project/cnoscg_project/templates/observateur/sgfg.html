@@ -1,18 +1,20 @@
-{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{% extends 'main.html' %}
 {% block content %}
 {% load static %}
 <div class="container">
 	<br>
     <div class="row">
         <div class="card">
-            <h4 class="text text-center text-success">Les Observateurs Electoraux - CNOSCG</h4>
-			<br>
-        </div>
-    </div>
-	<br>
-	<div class="row">
-        <div class="card">
-            <h4 class="text text-center text-success">Félicitations, vous avez été retenu comme Observateur Domestique du CNOSCG pour :</h4>
+            <h4 class="text text-center text-success">Liste Générale des Observateurs du CNOSCG</h4>
 			<br>
         </div>
     </div>
@@ -23,6 +25,7 @@
 		<div class="col-md-12">
             <div class="card card-body">
                 <div class="table-responsive">
+
 					<table class="table align-items-center table-flush">
 						<thead class="thead-warning">
 							<tr bgcolor="green">
@@ -31,8 +34,8 @@
 								<th scope="col" class="sort" data-sort="commune">Commune</th>
 								<th scope="col" class="sort" data-sort="prenom">Prénom</th>
 								<th scope="col" class="sort" data-sort="nom">nom</th>
-								<th scope="col" class="sort" data-sort="telephone">Téléphone</th>
-								<th scope="col" class="sort" data-sort="detail">Photo</th>
+								<th scope="col" class="sort" data-sort="telephone">telephone</th>
+								<th scope="col" class="sort" data-sort="detail">Détail</th>
 							</tr>
 						</thead>
 						<tbody class="list">
@@ -44,7 +47,7 @@
                                 <td>{{observateur.prenom}}</td>
 								<td>{{observateur.nom}}</td>
 								<td>{{observateur.telephone}}</td>
-								<th><img src = "{{observateur.picture.url}}" height="140" width="140" class=""/></th>
+								<th><a class="btn btn-primary" href="{% url 'detail_observateur' observateur.id %}">Détail</a></th>
 							</tr>
 							{% endfor %}
 						</tbody>

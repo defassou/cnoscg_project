@@ -1,8 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import ObservateurForm
-from .models import Observateur
+from .models import Observateur, Region, Commune, refecture
 from django.http import JsonResponse
+
+from ...observatoire.models import Prefecture
+
+
+def sgfg(request):
+    regions = Region.objects.all()
+    prefectures = Prefecture.objects.all()
+    communes = Commune.objects.all()
+    observateurs = Observateur.objects.all()
+    context = {'observateurs':observateurs, 'regions':regions, 'prefectures':prefectures, 'communes':communes}
+    return render(request, 'observateur/sgfg.html', context)
+
 
 
 def index(request):
