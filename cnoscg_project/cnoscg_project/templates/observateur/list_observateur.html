@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+	<br>
+    <div class="row">
+        <div class="card">
+            <h4 class="text text-center text-success">Les Observateurs Electoraux - CNOSCG</h4>
+			<br>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+            <div class="card card-body">
+                <div class="table-responsive">
+					<table class="table align-items-center table-flush">
+						<thead class="thead-warning">
+							<tr bgcolor="green">
+								<th scope="col" class="sort" data-sort="region">Région</th>
+								<th scope="col" class="sort" data-sort="prefecture">Préfecture</th>
+								<th scope="col" class="sort" data-sort="commune">Commune</th>
+								<th scope="col" class="sort" data-sort="prenom">Prénom</th>
+								<th scope="col" class="sort" data-sort="nom">nom</th>
+								<th scope="col" class="sort" data-sort="telephone">telephone</th>
+								<th scope="col" class="sort" data-sort="detail">Détail</th>
+							</tr>
+						</thead>
+						<tbody class="list">
+							{% for observateur in observateurs %}
+							<tr>
+								<td>{{observateur.region}}</td>
+								<td>{{observateur.prefecture}}</td>
+								<td>{{observateur.commune}}</td>
+                                <td>{{observateur.prenom}}</td>
+								<td>{{observateur.nom}}</td>
+								<td>{{observateur.telephone}}</td>
+								<th><a class="btn btn-primary" href="{% url 'detail_observateur' observateur.id %}">Détail</a></th>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+            </div>
+        </div>
+    </div>
+</div><br>
+{% endblock %}

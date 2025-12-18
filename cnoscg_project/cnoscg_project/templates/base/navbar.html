@@ -1,0 +1,32 @@
+{% load static %}
+<div class="container">
+
+  <nav class="navbar navbar-expand-lg fixed-left navbar-top bg-success">
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav">
+        <img src="{% static 'images/logo_cnoscg.jpg' %}" width="70" height="70" alt="" class="rounded-circle"/>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="">Conseil National des Organisations de la Société Civile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="">President</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="">Superviseur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="">Focaux</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="">Observateur</a>
+        </li>
+      </ul>
+    </div>
+    <form class="text" action="{% url 'recherche' %}" method="get" accept-charset="utf-8">
+      <input id="searchForm" class="form-control" name="query" placeholder="Numéro de téléphone de l'Observateur" type="text">
+    </form>
+    <img src="{% static 'images/branding.webp' %}" width="70" height="70" alt="" class="rounded-circle"/>
+  </nav>
+</div>
