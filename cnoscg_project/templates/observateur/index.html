@@ -29,7 +29,7 @@
 
               <!-- ORIGINAL -->
               <header class="header-content">
-                  <img src="images/logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
+                  <img src="static/images/logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
                   <div>
                     <h1 class="main-title">ObservateursCNOSCG.gn</h1>
                     <p class="subtitle">Plateforme Nationale des Observateurs du CNOSCG</p>
@@ -38,7 +38,7 @@
 
               <!-- DUPLICATION POUR DÉFILEMENT INFINI -->
               <header class="header-content">
-                  <img src="logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
+                  <img src="static/images/logo_cnoscg.jpg" class="logo-cnoscg-small" alt="Logo CNOSCG">
                   <div>
                     <h1 class="main-title">ObservateursCNOSCG.gn</h1>
                     <p class="subtitle">Plateforme Nationale des Observateurs du CNOSCG</p>
@@ -61,6 +61,7 @@
           électoral intègre, inclusif et transparent.
         </p>
         <div class="hero-actions">
+          <a href="#admn" class="btn secondary">Administration</a>
           <a href="#verif" class="btn primary">Vérifier mon statut</a>
           <a href="#docs" class="btn secondary">Consulter les documents</a>
         </div>
@@ -79,14 +80,14 @@
   <!-- SECTION MOT DU PRÉSIDENT -->
   <section class="president-section-institutionnel">
     <div class="president-header">
-      <img src="images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="logo-cnoscg">
+      <img src="static/images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="logo-cnoscg">
       <h2>Mot du Président du CNOSCG</h2>
     </div>
 
     <div class="president-wrapper">
       <div class="president-photo-box">
         <div class="guinea-flag-bar"></div>
-        <img src="images/president.jpg" alt="Président du CNOSCG" class="president-photo-institutionnel">
+        <img src="static/images/president.jpg" alt="Président du CNOSCG" class="president-photo-institutionnel">
       </div>
 
       <div class="president-speech">
@@ -116,33 +117,12 @@
 
       <div class="card verif-card">
         <label for="phone">Numéro de téléphone</label>
-        <div class="form-row" >
-          <input id="phone" type="tel" placeholder="Ex&nbsp;: 622829824" inputmode="tel" />
-          <button id="checkBtn" class="btn primary">Vérifier</button>
-        </div>
-        <div id="message" class="small" style="margin-top:10px"></div>
 
-        <!-- Résultat trouvé -->
-        <div id="result" class="result" aria-live="polite">
-          <img id="photo" class="avatar" src="" alt="Photo de l'observateur" />
-          <div class="info">
-            <div id="statusBox" class="badge">STATUT</div>
-            <p class="success-text" id="successText"></p>
-            <div class="field"><strong id="fullname">Nom Prénom</strong></div>
-            <div class="field small">Commune : <span id="commune">-</span></div>
-            <div class="field small">Téléphone : <span id="phoneOut">-</span></div>
-            <div class="field small">ID Observateur : <span id="obsId">-</span></div>
-          </div>
-        </div>
+        <form class="text" action="{% url 'search' %}" method="get" accept-charset="utf-8">
+          <input id="searchForm" class="form-control" name="query" placeholder="Ex&nbsp;: 622829824" type="text">
+        </form>
 
-        <!-- Résultat non trouvé -->
-        <div id="notFound" class="alert alert-warning" role="status" aria-live="polite">
-          Aucun enregistrement trouvé pour ce numéro. 
-          Si vous pensez qu'il s'agit d'une erreur, veuillez contacter le CNOSCG.
-        </div>
 
-        <!-- Erreur technique -->
-        <div id="errorBox" class="alert alert-error" role="status" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -178,7 +158,7 @@
         <article class="doc-card">
           <h5>Décision portant nomination des membres de la Commission nationale de coordination...</h5>
           <p>Décision N°003/BEN/CNOSCG/2025.</p>
-          <a href="images/JOURNAL 10 NOVEMBRE.pdf" class="doc-link">Télécharger le kit (PDF)</a>
+          <a href="static/images/JOURNAL 10 NOVEMBRE.pdf" class="doc-link">Télécharger le kit (PDF)</a>
         </article>
       </div>
     </div>
@@ -232,24 +212,24 @@
       </div>
 
       <div class="team-card">
-        <img src="images/saibou.jpg" alt="Saïbou KOUROUMA">
+        <img src="static/images/saibou.jpg" alt="Saïbou KOUROUMA">
         <h3>Saïbou KOUROUMA</h3>
         <p>Responsable IT / Gestion des Données</p>
       </div>
        <div class="team-card">
-        <img src="images/Felix.jpg" alt="Felix Dounia MILLIMONO">
+        <img src="static/images/Felix.jpg" alt="Felix Dounia MILLIMONO">
         <h3>Felix Dounia MILLIMONO</h3>
         <p>Responsable de la Planification et du Partenariat</p>
       </div>
 
       <div class="team-card">
-        <img src="images/Ankou.jpg" alt="Ankou GREGOIRE">
+        <img src="static/images/Ankou.jpg" alt="Ankou GREGOIRE">
         <h3>Ankou GREGOIRE</h3>
         <p>Responsable Communication</p>
       </div>
 
       <div class="team-card">
-        <img src="images/moussa_kaba.jpg" alt="Macka DIABY">
+        <img src="static/images/moussa_kaba.jpg" alt="Macka DIABY">
         <h3>Macka DIABY</h3>
         <p>Comptable</p>
       </div>
@@ -260,7 +240,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <img src="images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="footer-logo">
+        <img src="static/images/logo_cnoscg.jpg" alt="Logo CNOSCG" class="footer-logo">
         <span>ObservateursCNOSCG.gn</span>
       </div>
       <div class="footer-right">

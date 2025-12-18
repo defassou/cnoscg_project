@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <h4 class="text text-center">Bienvenue sur la page de la Direction des Ressources Humaines du CNT</h4>
+        </div>
+    </div>
+</div>
+<div class="container h-120">
+    <div class="row">
+		<ul class="text text-center">
+            <a class="btn btn-outline-success" href="">Cabinet du Président</a>
+            <a class="btn btn-outline-success" href="">Conseillers du Président</a>
+            <a class="btn btn-outline-success" href="">Secrétariat Général</a>
+            <a class="btn btn-outline-success" href="">Commissions</a>
+
+			<a class="btn btn-outline-success" href="">Directions</a>
+			<a class="btn btn-outline-success" href="">Divisions</a>
+			<a class="btn btn-outline-success" href="">Sections</a>
+		</ul>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-3">
+
+		<div class="box">
+
+			<div class="card card-body">
+				<h4 class="text text-center text-success">Statistiques</h4>
+				<hr>
+				<a class="btn btn-success btn-outline-success btn-block" href="">Effectif:</a>
+                    <a class="btn btn-success btn-outline-success btn-block" href="">Homme: </a>
+                    <a class="btn btn-success btn-outline-success btn-block" href="">Femme:</a>
+                    <a class="btn btn-success btn-outline-success btn-block" href="">Demande de Congé:</a>
+                    <a class="btn btn-success btn-outline-success btn-block" href="">Autorisation d'absence:</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-warning">
+                        <tr bgcolor="green">
+                            {% comment %}<th scope="col" class="sort text-white" data-sort="destinataire">Service</th>{% endcomment %}
+                            <th scope="col" class="sort text-white" data-sort="matricule">Matricule</th>
+                            <th scope="col" class="sort text-white" data-sort="nom">Prénom</th>
+                            <th scope="col" class="sort text-white" data-sort="nom">NOM</th>
+                            <th scope="col" class="sort text-white" data-sort="telephone">Téléphone</th>
+                            <th scope="col" class="sort text-white" data-sort="detail">Détail</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        {% for person in persons %}
+                        <tr>
+                            {% comment %}<td>{{ person.service }}</td>{% endcomment %}
+                            <td>{{ person.matricule }}</td>
+                            <td>{{ person.prenoms }}</td>
+                            <td>{{ person.nom }}</td>
+                            <td>{{ person.telephone }}</td>
+                            <th><a class="btn btn-sm btn-success" href="{% url 'detail_personnel' person.id %}">Détail</a></th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

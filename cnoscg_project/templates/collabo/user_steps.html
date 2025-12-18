@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block title %}Mes étapes de procédure{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Mes étapes de procédure </h1>
+    <ul class="list-group">
+        {% for etape in etapes %}
+            <li class="list-group-item">
+                {{ etape.nom }} - {{ etape.description }}
+                {% if etape.completed %}
+                    <span class="badge badge-success">Complété le {{ etape.date_completed }}</span>
+                {% else %}
+                    <a href="{% url 'complete_step' etape.pk %}" class="btn btn-outline-success btn-sm">Compléter cette étape</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

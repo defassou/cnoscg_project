@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<br>
+<div class="p-6">
+<h4 class="text-xl font-semibold mb-2 text-center">Gestion des Ressources Humaines - CNT</h4>
+    <div class="overflow-y-auto max-h-64 border rounded-lg">
+        <table class="w-full text-left">
+            <thead class="bg-gray-100 sticky top-0">
+                <tr>
+                    <th class="p-3">Direction</th>
+                    <th class="p-3">Matricule</th>
+                    <th class="p-3">Prénom(s)</th>
+                    <th class="p-3">Nom</th>
+                    <th class="p-3">Télephone</th>
+                    <th class="p-3">Détail</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for person in persons %}
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3">{{ person.direction }}</td>
+                    <td class="p-3">{{ person.matricule }}</td>
+                    <td class="p-3">{{ person.prenoms }}</td>
+                    <td class="p-3">{{ person.nom }}</td>
+                    <td class="p-3">{{ person.telephone }}</td>
+                    <th><a class="btn btn-primary" href="{% url 'detail_personnel' person.id %}">Détail</a></th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row">
+		<div class="box">
+            <h5 class="text text-center text-success">Répertoire de nos collaborateurs </h5>
+            <hr>
+        </div>
+		{% comment %}<div class="card card-body">{% endcomment %}
+		<!-- Dark table -->
+			<div class="table-responsive">
+				<table class="table align-items-center table-flush">
+					<thead class="thead">
+					<tr bgcolor="green">
+						<th scope="col" class="sort text-white" data-sort="Date">Identifiant</th>
+						<th scope="col" class="sort text-white" data-sort="ref">Prénom</th>
+						<th scope="col" class="sort text-white" data-sort="ref">Nom</th>
+						<th scope="col" class="sort text-white" data-sort="Titre">Email</th>
+						<th scope="col" class="sort text-white" data-sort="sponsor">Téléphone</th>
+						<th scope="col" class="sort text-white" data-sort="detail">Détail</th>
+					</tr>
+					</thead>
+					<tbody class="list">
+					{% for user in users %}
+					<tr>
+						<td scope="row">
+							<div class="media align-items-center">
+								<div class="media-body">
+									<span class="name mb-0 text-sm">{{ user.id}}</span>
+								</div>
+							</div>
+						</td>
+						<td scope="row">
+							<div class="media align-items-center">
+								<div class="media-body">
+									<span class="name mb-0 text-sm">{{user.first_name}}</span>
+								</div>
+							</div>
+						</td>
+						<td>
+							<span class="badge badge-dot mr-4">
+								<span class="completion mr-2">{{user.last_name}}</span>
+							</span>
+						</td>
+						<td>
+							<span class="badge badge-dot mr-4">
+								<span class="completion mr-2">{{user.email}}</span>
+							</span>
+						</td>
+						<td>
+							<div class="d-flex align-items-center">
+								<span class="completion mr-2">{{user.telephone}}</span>
+							</div>
+						</td>
+						<th><a class="btn btn-info" href="{% url 'user_detail' user.id %}">Détail</a></th>
+					</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% comment %}</div>{% endcomment %}
+    </div>
+</div>
+{% endblock %}

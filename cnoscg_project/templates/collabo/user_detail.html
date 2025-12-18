@@ -1,0 +1,93 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <br>
+    <div class="card card-body">
+        <h5 class="text text-center">Profil de : {{user.first_name}}   {{user.last_name}}</h5>
+    </div>
+    <hr>
+    <div class="col col-md">
+        <div class="card card-body">
+            <div class="box">
+                <p>Prénom(s) :   {{user.first_name}} </p>
+                <p>Nom :   {{user.last_name}} </p>
+                <p>Nom d'utilisateur :   {{user.username}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="col col-md">
+        <div class="card card-body">
+            <div class="box">
+                <p>Email:  {{user.email}} </p>
+                <p>Téléphone:  {{user.telephone}} </p>
+                <p>ACTIF :   {{user.actif}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="col col-md">
+        <div class="card card-view">
+            <p><img src="{% static 'images/logo.png' %}" height="150" width="150" class="d-inline-block align-center"/></p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-body">
+            <h5 class="text text-center">Historique des activités </h5>
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                    <div class="card card-body">
+                    <!-- Dark table -->
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead">
+                                <tr bgcolor="green">
+                                    <th scope="col" class="sort text-white" data-sort="Date">Date</th>
+                                    <th scope="col" class="sort text-white" data-sort="ref">Référence</th>
+                                    <th scope="col" class="sort text-white" data-sort="Titre">Objet</th>
+                                    <th scope="col" class="sort text-white" data-sort="sponsor">Destinataire</th>
+                                    <th scope="col" class="sort text-white" data-sort="detail">Détail</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                {% for activite in activite %}
+                                <tr>
+                                    <td scope="row">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">{{ activite.date_reception}}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">{{ activite.reference}}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <span class="status">{{activite.objet}}</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="completion mr-2">{{activite.destinataire}}</span>
+                                        </div>
+                                    </td>
+                                    <th><a class="btn btn-info" href="{% url 'detail_activite' activite.id %}">Lire</a></th>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
