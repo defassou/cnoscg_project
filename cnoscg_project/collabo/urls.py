@@ -12,8 +12,8 @@ urlpatterns = [
     path('logout', logoutUser, name='logout'),
 
     path('president', president, name='president'),
-    path('general', superviseur, name='general'),
-    path('directeur', focal, name='directeur'),
+    path('superviseur', superviseur, name='superviseur'),
+    path('focal', focal, name='focal'),
 
     path('user_list/', user_list, name='user_list'),
     path('user_detail/<int:pk>/', user_detail, name='user_detail'),
